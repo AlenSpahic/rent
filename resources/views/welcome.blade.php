@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        @include('include.head')
+        
 
-        <title>Rent a Car</title>
+        <title>Alenov Rent a Car</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,6 +18,7 @@
     </head>
     <body class="antialiased">
        @include('include.navbar')
+
         
     <div class="ftco-blocks-cover-1">
       <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_1.jpg')">
@@ -23,27 +26,27 @@
           <div class="row align-items-center">
             <div class="col-lg-5">
               <div class="feature-car-rent-box-1">
-                <h3>Range Rover S7</h3>
+                <h3>Ford Kuga</h3>
                 <ul class="list-unstyled">
                   <li>
-                    <span>Doors</span>
+                    <span>Vrata</span>
                     <span class="spec">4</span>
                   </li>
                   <li>
-                    <span>Seats</span>
+                    <span>Sjedišta</span>
                     <span class="spec">6</span>
                   </li>
                   <li>
                     <span>Lugage</span>
-                    <span class="spec">2 Suitcase/2 Bags</span>
+                    <span class="spec">2 Kofera</span>
                   </li>
                   <li>
-                    <span>Transmission</span>
-                    <span class="spec">Automatic</span>
+                    <span>Transmisija</span>
+                    <span class="spec">Automatik</span>
                   </li>
                   <li>
-                    <span>Minium age</span>
-                    <span class="spec">Automatic</span>
+                    <span>Minium godina</span>
+                    <span class="spec">18</span>
                   </li>
                 </ul>
                 <div class="d-flex align-items-center bg-light p-3">
@@ -105,8 +108,8 @@
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3">
-            <h3>Our Offer</h3>
+          <div class="col-lg-12">
+            <h3>Naša vozila</h3>
             <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
             <p>
               <a href="#" class="btn btn-primary custom-prev">Previous</a>
@@ -114,17 +117,17 @@
               <a href="#" class="btn btn-primary custom-next">Next</a>
             </p>
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-12">
 
 
 
 
-            <div class="nonloop-block-13 owl-carousel">
+            <div>
               <div class="item-1">
                 <a href="#"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
                 <div class="item-1-contents">
                   <div class="text-center">
-                  <h3><a href="#">Range Rover S64 Coupe</a></h3>
+                  <h3><a href="#">Ford Kuga</a></h3>
                   <div class="rating">
                     <span class="icon-star text-warning"></span>
                     <span class="icon-star text-warning"></span>
