@@ -105,7 +105,7 @@
 
     
 
-    <div class="site-section bg-light">
+   <!--  <div class="site-section bg-light">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -391,9 +391,9 @@
     </div>
             </div>
         </div>
+ -->
 
-
-          <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>

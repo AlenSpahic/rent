@@ -1217,8 +1217,8 @@ h1, h2, h3, h4, h5,
   background-position: center center;
   background-repeat: no-repeat; }
   .ftco-cover-1, .ftco-cover-1 .container > .row {
-    height: 100vh;
-    min-height: 900px; }
+    height: 75vh;
+     }
   .ftco-cover-1.innerpage, .ftco-cover-1.innerpage .container > .row {
     height: 90vh;
     min-height: 700px; }
@@ -1253,7 +1253,7 @@ h1, h2, h3, h4, h5,
     .ftco-cover-1.overlay form .form-control {
       padding-left: 20px;
       padding-right: 20px;
-      border-color: transparent;
+      border-color: gray;
       margin-right: 10px; }
     .ftco-cover-1.overlay form .btn {
       border-color: transparent; }
@@ -1448,15 +1448,15 @@ h1, h2, h3, h4, h5,
 
 .trip-form {
   padding: 40px 30px;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.4);
   position: relative;
-  margin-top: -90px;
-  -webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1); }
+  margin-top: -25px;
+  -webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 1); }
   .trip-form h3 {
     font-size: 20px;
     margin-bottom: 30px;
-    color: #000; }
+    color: #fff; }
 
 .item-1 .item-1-contents {
   padding: 20px;
@@ -1578,3 +1578,14 @@ h1, h2, h3, h4, h5,
     -ms-flex: 0 0 50px;
     flex: 0 0 50px;
     border-radius: 50%; }
+
+
+
+
+/*Navbar*/
+
+.nav-link {
+  color: #000 !important;
+  font-size: 18px;
+  margin: 0 0 0 20px;
+}

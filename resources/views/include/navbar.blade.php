@@ -1,56 +1,58 @@
 
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="height: 80px;">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    Početna
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-  <div class="site-wrap" id="home-section">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
 
-      <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-          <div class="site-mobile-menu-close mt-3">
-            <span class="icon-close2 js-menu-toggle"></span>
-          </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-      </div>
+                    </ul>
 
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li><a href="services.html" class="nav-link">Services</a></li>
+                            <li><a href="contact.html" class="nav-link">Contact</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li><a href="cars.html" class="nav-link">Cars</a></li>
+                            <li><a href="services.html" class="nav-link">Services</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="blog.html" class="nav-link">Blog</a></li>
+                            <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
 
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-      <header class="site-navbar site-navbar-target" role="banner">
-        <div class="container">
-          <div class="row align-items-center position-relative">
-            <div class="col-3 ">
-              <div class="site-logo">
-                <a href="index.html">Alenov CarRent</a>
-              </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
             </div>
-            <div class="col-9  text-right">
-              <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
-              <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="" class="nav-link">Početna</a></li>
-                  <li class="text-dark"><a href="services.html" class="nav-link">Servisi</a></li>
-                  <li class="text-dark"><a href="cars.html" class="nav-link">Automobili</a></li>
-                  <li class="text-dark"><a href="about.html" class="nav-link">O nama</a></li>
-                  <li class="text-dark"><a href="blog.html" class="nav-link">Blog</a></li>
-                  <li class="text-dark"><a href="contact.html" class="nav-link">Kontakt</a></li>
-                  <li>
-                    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-                      @if (Route::has('login'))
-                      <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                          @auth
-                              <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                          @else
-                              <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
-                              @if (Route::has('register'))
-                                  <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                              @endif
-                          @endauth
-                      </div>
-                      @endif
-                    </div>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </header
+        </nav>
