@@ -30,7 +30,8 @@
             <div>
               <h1 style="position: absolute; top: -50px;">Enjoy your privacy.</h1>
             </div>
-             <form class="trip-form">
+             <form class="trip-form" method="POST" action="{{ Route('store') }}" id="rentForm">
+              @csrf
                 <div class="row align-items-center mb-4">
                   <div class="col-md-6">
                     <h3 class="m-0">Begin your trip here</h3>
@@ -41,12 +42,12 @@
                 </div>
                 <div class="row">
                   <div class="form-group col-12">
-                        <label class="text-light">FROM</label>
-                        <input type="text" name="autocomplete" id="autocomplete" class="form-control fill" placeholder="Choose Location">
+                      <label for="from_destination" class="text-light">FROM</label>
+                      <input type="text" name="from_destination" id="autocomplete" class="form-control fill" placeholder="Choose Location">
                     </div>
-                     <div class="form-group col-12">
-                        <label class="text-light">TO</label>
-                        <input type="text" name="autocomplete2" id="autocomplete2" class="form-control fill" placeholder="Choose Location">
+                    <div class="form-group col-12">
+                        <label for="to_destination" class="text-light">TO</label>
+                        <input type="text" name="to_destination" id="autocomplete2" class="form-control fill" placeholder="Choose Location">
                     </div>
               
                    <!--  <div class="form-group" id="latitudeArea">
@@ -62,21 +63,24 @@
                 </div>
                 <div class="row">
                   <div class="form-group col-6">
-                    <label class="text-light" for="cf-3">Start date</label>
-                    <input type="text" id="cf-3" placeholder="Your pickup address" class="form-control datepicker px-3">
+                    <label for="start_date" class="text-light" for="">Start date</label>
+                    <input type="text" id="cf-3" name="start_date" placeholder="Your pickup address" class="form-control datepicker px-3">
                   </div>
                   <div class="form-group col-6">
-                    <label class="text-light" for="cf-4">Return date</label>
-                    <input type="text" id="cf-4" placeholder="Your pickup address" class="form-control datepicker px-3">
+                    <label for="end_date" class="text-light" for="cf-4">Return date</label>
+                    <input type="text" id="cf-4" name="end_date" placeholder="Your pickup address" class="form-control datepicker px-3">
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-6">
-                     @guest
-                      <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  <div class="col-lg-3" style="width: 100%;">
+                    @guest
+                      <a class="btn btn-primary d-flex align-items-center" href="{{ route('login') }}">{{ __('Login') }}</a>
                     @else
-                      <input type="submit" value="Submit" class="btn btn-primary">
+                      <input type="submit" value="Submit" class="btn btn-primary" form="rentForm">
                     @endguest
+                  </div>
+                   <div class="col-lg-9 d-flex" style="justify-content: flex-end;">
+                     
                   </div>
                 </div>
               </form>
@@ -86,6 +90,379 @@
       </div>
     </div>
 
+    @guest
+      
+    @else
+      
+    <div class="site-section bg-light scrollLink" id="cars">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3>Naša vozila</h3>
+            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
+            <p>
+              <a href="#" class="btn btn-primary custom-prev">Previous</a>
+              <span class="mx-2">/</span>
+              <a href="#" class="btn btn-primary custom-next">Next</a>
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-6 item-1">
+              <a href="#"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
+              <div class="item-1-contents">
+                <div class="text-center">
+                <h3><a href="#">Ford Kuga</a></h3>
+                <div class="rating">
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                </div>
+                <div class="rent-price"><span>$250/</span>day</div>
+                </div>
+                <ul class="specs">
+                  <li>
+                    <span>Doors</span>
+                    <span class="spec">4</span>
+                  </li>
+                  <li>
+                    <span>Seats</span>
+                    <span class="spec">5</span>
+                  </li>
+                  <li>
+                    <span>Transmission</span>
+                    <span class="spec">Automatic</span>
+                  </li>
+                  <li>
+                    <span>Minium age</span>
+                    <span class="spec">18 years</span>
+                  </li>
+                </ul>
+                <div class="d-flex action">
+                  <a href="contact.html" class="btn btn-primary">Rent Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 item-1">
+              <a href="#"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
+              <div class="item-1-contents">
+                <div class="text-center">
+                <h3><a href="#">Range Rover S64 Coupe</a></h3>
+                <div class="rating">
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                  <span class="icon-star text-warning"></span>
+                </div>
+                <div class="rent-price"><span>$250/</span>day</div>
+                </div>
+                <ul class="specs">
+                  <li>
+                    <span>Doors</span>
+                    <span class="spec">4</span>
+                  </li>
+                  <li>
+                    <span>Seats</span>
+                    <span class="spec">5</span>
+                  </li>
+                  <li>
+                    <span>Transmission</span>
+                    <span class="spec">Automatic</span>
+                  </li>
+                  <li>
+                    <span>Minium age</span>
+                    <span class="spec">18 years</span>
+                  </li>
+                </ul>
+                <div class="d-flex action">
+                  <a href="contact.html" class="btn btn-primary">Rent Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section section-3 scrollLink" style="background-image: url('images/hero_2.jpg');" id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="text-white">Our services</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="service-1">
+              <span class="service-1-icon">
+                <span class="flaticon-car-1"></span>
+              </span>
+              <div class="service-1-contents">
+                <h3>Repair</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="service-1">
+              <span class="service-1-icon">
+                <span class="flaticon-traffic"></span>
+              </span>
+              <div class="service-1-contents">
+                <h3>Car Accessories</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="service-1">
+              <span class="service-1-icon">
+                <span class="flaticon-valet"></span>
+              </span>
+              <div class="service-1-contents">
+                <h3>Own a Car</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container site-section mb-5 scrollLink" id="anchor3">
+      <div class="row justify-content-center text-center">
+        <div class="col-7 text-center mb-5">
+          <h2>How it works</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+        </div>
+      </div>
+      <div class="how-it-works d-flex">
+        <div class="step">
+          <span class="number"><span>01</span></span>
+          <span class="caption">Time &amp; Place</span>
+        </div>
+        <div class="step">
+          <span class="number"><span>02</span></span>
+          <span class="caption">Car</span>
+        </div>
+        <div class="step">
+          <span class="number"><span>03</span></span>
+          <span class="caption">Details</span>
+        </div>
+        <div class="step">
+          <span class="number"><span>04</span></span>
+          <span class="caption">Checkout</span>
+        </div>
+        <div class="step">
+          <span class="number"><span>05</span></span>
+          <span class="caption">Done</span>
+        </div>
+
+      </div>
+    </div>
+    
+    
+    <div class="site-section bg-light scrollLink" id="anchor4">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-7 text-center mb-5">
+            <h2>Customer Testimony</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="testimonial-2">
+              <blockquote class="mb-4">
+                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
+              </blockquote>
+              <div class="d-flex v-card align-items-center">
+                <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3">
+                <span>Mike Fisher</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="testimonial-2">
+              <blockquote class="mb-4">
+                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
+              </blockquote>
+              <div class="d-flex v-card align-items-center">
+                <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
+                <span>Jean Stanley</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="testimonial-2">
+              <blockquote class="mb-4">
+                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
+              </blockquote>
+              <div class="d-flex v-card align-items-center">
+                <img src="images/person_3.jpg" alt="Image" class="img-fluid mr-3">
+                <span>Katie Rose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section bg-white scrollLink" id="blog">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-7 text-center mb-5">
+            <h2>Our Blog</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="post-entry-1 h-100">
+              <a href="single.html">
+                <img src="images/post_1.jpg" alt="Image"
+                 class="img-fluid">
+              </a>
+              <div class="post-entry-1-contents">
+                
+                <h2><a href="single.html">The best car rent in the entire planet</a></h2>
+                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="post-entry-1 h-100">
+              <a href="single.html">
+                <img src="images/img_2.jpg" alt="Image"
+                 class="img-fluid">
+              </a>
+              <div class="post-entry-1-contents">
+                
+                <h2><a href="single.html">The best car rent in the entire planet</a></h2>
+                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="post-entry-1 h-100">
+              <a href="single.html">
+                <img src="images/img_3.jpg" alt="Image"
+                 class="img-fluid">
+              </a>
+              <div class="post-entry-1-contents">
+                
+                <h2><a href="single.html">The best car rent in the entire planet</a></h2>
+                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="site-section bg-light scrollLink" id="contact-section">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+        <div class="col-7 text-center mb-5">
+          <h2>Contact Us Or Use This Form To Rent A Car</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-lg-8 mb-5" >
+            <form action="{{ Route('store') }}" method="post" id="contactForm">
+              @csrf
+              <div class="form-group row">
+                <div class="col-md-6 mb-4 mb-lg-0">
+                  <input name="first_name" type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col-md-6">
+                  <input name="last_name" type="text" class="form-control" placeholder="Last name">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input name="email" type="email" class="form-control" placeholder="Email address">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea name="message" type="text" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-6 mr-auto">
+                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" form="contactForm" value="Send Message">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-4 ml-auto">
+            <div class="bg-white p-3 p-md-5">
+              <h3 class="text-black mb-4">Contact Info</h3>
+              <ul class="list-unstyled footer-link">
+                <li class="d-block mb-3">
+                  <span class="d-block text-black">Address:</span>
+                  <span>34 Street Name, City Name Here, United States</span></li>
+                <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+1 242 4942 290</span></li>
+                <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+@endguest
+
+
+    <script>
+      //Get the button
+      var mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $( "a.scrollLink" ).click(function( event ) {
+            event.preventDefault();
+            $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+        });
+      });
+    </script>
 
 
 

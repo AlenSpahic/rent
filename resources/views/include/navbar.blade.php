@@ -30,11 +30,11 @@
                                 </li>
                             @endif
                         @else
-                            <li><a href="cars.html" class="nav-link">Cars</a></li>
-                            <li><a href="services.html" class="nav-link">Services</a></li>
-                            <li><a href="about.html" class="nav-link">About</a></li>
-                            <li><a href="blog.html" class="nav-link">Blog</a></li>
-                            <li><a href="contact.html" class="nav-link">Contact</a></li>
+                            <li><a href="#cars" class="nav-link">Cars</a></li>
+                            <li><a href="#services" class="nav-link">Services</a></li>
+                            <li><a href="#about" class="nav-link">About</a></li>
+                            <li><a href="#blog" class="nav-link">Blog</a></li>
+                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

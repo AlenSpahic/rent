@@ -105,7 +105,7 @@
 
     
 
-   <!--  <div class="site-section bg-light">
+    <div class="site-section bg-light">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -374,9 +374,9 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="post-entry-1 h-100">
-              <a href="single.html">
                 <img src="images/img_3.jpg" alt="Image"
-                 class="img-fluid">
+               <a href="single.html">
+                class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
                 
@@ -391,7 +391,7 @@
     </div>
             </div>
         </div>
- -->
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>

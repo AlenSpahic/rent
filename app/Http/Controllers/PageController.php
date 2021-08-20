@@ -11,11 +11,11 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-            public function index () {
+        public function index () {
             return view('home');
         }
 
-         public function welcome () {
+        public function welcome () {
             return view('home');
         }
     
@@ -38,7 +38,7 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**

@@ -19,9 +19,23 @@ Route::get('/', function () {
 
 Route::get('/', 'PageController@welcome')->name('welcome');
 
+Route::post('/', 'OrderController@store')->name('store');
+Route::post('/', 'ContactController@store')->name('store');
 
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+// Admin
+
+Route::group(['middleware' => ['auth', 'admin']], function () {
+
+    Route::get('dashboard', function () {
+    return view('admin.dashboard');
+    });
+});
