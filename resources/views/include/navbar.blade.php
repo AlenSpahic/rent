@@ -34,7 +34,7 @@
                             <li><a href="#services" class="nav-link">Services</a></li>
                             <li><a href="#about" class="nav-link">About</a></li>
                             <li><a href="#blog" class="nav-link">Blog</a></li>
-                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                            <li><a href="{{ Route('contact') }}" class="nav-link">Contact</a></li>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

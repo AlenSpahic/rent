@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\Contact;
-
-use DateTime;
-
-class ContactController extends Controller
+use App\Models\Blog;
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +12,10 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('contact');
+    {   
+        $blogs = Blog::all();
+        
+        return view ('admin.blog.index')->with('blogs', $blogs);
     }
 
     /**
@@ -38,16 +36,17 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new Contact;
+        $blog = new Blog;
 
-        $contact->first_name = $request->first_name;
-        $contact->last_name = $request->last_name;
-        $contact->email = $request->email;
-        $contact->message = $request->message;
+        $blog->title = $request->input('title');
+        $blog->subtitle = $request->input('subtitle');
+        $blog->content = $request->input('content');
 
-        $contact->save();
+        $blog->save();
 
-        return Redirect(Route('home'));
+         return Redirect (Route('blog.index'))->with('status', 'Great work Alen, saved new blog');
+
+
     }
 
     /**
@@ -69,7 +68,10 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+
+        return view ('admin.blog.edit')->with('blog', $blog);
+
     }
 
     /**
@@ -81,7 +83,16 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $blog = Blog::find($id);
+
+        $blog->title = $request->input('title');
+        $blog->subtitle = $request->input('subtitle');
+        $blog->content = $request->input('content');
+        // $blogs->role_id = $request->input('role');
+
+        $blog->update();
+
+        return Redirect (Route('blog.index'))->with('status', 'Great work Alen');
     }
 
     /**
@@ -92,6 +103,10 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+
+        $blog->delete();
+
+        return Redirect (Route('blog.index'))->with('status', 'Great work Alen, blog deleted');
     }
 }

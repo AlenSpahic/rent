@@ -19,8 +19,9 @@ Route::get('/', function () {
 
 Route::get('/', 'PageController@welcome')->name('welcome');
 
-Route::post('/', 'OrderController@store')->name('store');
-Route::post('/', 'ContactController@store')->name('store');
+Route::post('/home', 'OrderController@store')->name('home.store');
+Route::get('/kontakt', 'ContactController@index')->name('contact');
+Route::post('/kontakt', 'ContactController@store')->name('kontakt.store');
 
 
 
@@ -38,4 +39,11 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard', function () {
     return view('admin.dashboard');
     });
+
+    Route::resource('user', 'UserController');
+    Route::resource('blog', 'BlogController');
+    Route::resource('orderCar', 'OrderController');
+
+
+
 });

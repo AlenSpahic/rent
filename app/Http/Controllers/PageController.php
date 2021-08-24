@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 
 class PageController extends Controller
 {
@@ -10,7 +11,11 @@ class PageController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+     * 
      */
+       
+
         public function index () {
             return view('home');
         }

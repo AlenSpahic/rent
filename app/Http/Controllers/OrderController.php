@@ -16,7 +16,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+         $orders = OrderCar::all();
+
+        return view ('admin.orderCars.index')->with('orders', $orders);
     }
 
     /**

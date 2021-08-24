@@ -17,5 +17,5 @@ class OrderCar extends Model
     ];
 
 
-    protected $table = 'cars';
+    protected $table = 'order_car';
 }

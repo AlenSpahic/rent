@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
-use App\Models\Contact;
-
-use DateTime;
-
-class ContactController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +14,11 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact');
+
+        $users = User::all();
+
+        return view ('admin.user.index')->with('users', $users);
+        
     }
 
     /**
@@ -38,16 +39,15 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new Contact;
+        $user = new User;
 
-        $contact->first_name = $request->first_name;
-        $contact->last_name = $request->last_name;
-        $contact->email = $request->email;
-        $contact->message = $request->message;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
 
-        $contact->save();
+        $user->save();
 
-        return Redirect(Route('home'));
+         return Redirect (Route('user.index'))->with('status', 'Great work Alen, Added new user');
     }
 
     /**
@@ -69,7 +69,9 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::findOrFail($id);
+
+        return view ('admin.user.edit')->with('users', $users);
     }
 
     /**
@@ -81,7 +83,16 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        // $users->role_id = $request->input('role');
+
+        $user->update();
+
+        return Redirect (Route('user.index'))->with('status', 'Great work Alen, saved new data');
+
     }
 
     /**
@@ -92,6 +103,10 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return Redirect (Route('user.index'))->with('status', 'Great work Alen, user deleted');
     }
 }
